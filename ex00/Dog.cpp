@@ -26,7 +26,7 @@ Dog::Dog(Dog const& copy) : Animal()
 
 Dog::~Dog()
 {
-	std::cout << "Dog " << _type << " Destructor called" << std::endl;
+	std::cout << _type << " Destructor called" << std::endl;
 }
 
 void	Dog::makeSound() const

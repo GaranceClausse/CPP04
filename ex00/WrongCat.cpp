@@ -26,7 +26,7 @@ WrongCat::WrongCat(WrongCat const& copy) : WrongAnimal()
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat " << _type << " Destructor called" << std::endl;
+	std::cout <<  "WrongCat Destructor called" << std::endl;
 }
 
 void	WrongCat::makeSound()

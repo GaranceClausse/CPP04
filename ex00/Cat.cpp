@@ -26,7 +26,7 @@ Cat::Cat(Cat const& copy) : Animal()
 
 Cat::~Cat()
 {
-	std::cout << "Cat " << _type << " Destructor called" << std::endl;
+	std::cout << _type << " Destructor called" << std::endl;
 }
 
 void	Cat::makeSound() const

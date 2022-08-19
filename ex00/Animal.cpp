@@ -26,7 +26,7 @@ Animal::Animal(Animal const& copy)
 
 Animal::~Animal()
 {
-	std::cout << "Animal " << _type << " Destructor called" << std::endl;
+	std::cout << "Animal Destructor called" << std::endl;
 }
 
 Animal&	Animal::operator=(Animal const& copy)
