@@ -13,6 +13,7 @@
 #pragma once
 
 #include "WrongAnimal.hpp"
+#include "Brain.hpp"
 
 class WrongCat : public WrongAnimal
 {
@@ -21,4 +22,9 @@ class WrongCat : public WrongAnimal
 		WrongCat(const WrongCat& copy);
 		~WrongCat();
 		void makeSound();
+		Brain* getBrain() const;
+		
+	private :
+		Brain*	_brain;
+
 };

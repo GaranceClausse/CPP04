@@ -19,10 +19,18 @@ Dog::Dog()
 	this->_brain = new Brain;
 }
 
-Dog::Dog(Dog const& copy) : Animal()
+Dog::Dog(Dog const& copy) : Animal(), _brain(NULL)
 {
 	std::cout << COLOR B_BLUE "Dog Copy constructor" COLOR RESET << std::endl;
 	operator=(copy);
+}
+
+Dog		&Dog::operator=( Dog const &copy )
+{
+	std::cout << "Dog Assignement operator" << std::endl;
+	this->_type = copy.getType();
+	*(this->_brain) = *(copy._brain);
+	return *this;
 }
 
 Dog::~Dog()

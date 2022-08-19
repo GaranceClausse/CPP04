@@ -115,5 +115,17 @@ int main()
 	std::cout << proof->getBrain() << std::endl;
 	delete cat;
 
+	std::cout << std::endl;
+	std::cout << "************************************" << std::endl;
+	std::cout << std::endl;
+	std::cout << "Show a shallow copy" << std::endl;
+	std::cout << std::endl;
+	WrongCat* wrongcat = new WrongCat();
+	WrongCat* proof2 = wrongcat;
+
+	std::cout << wrongcat->getBrain() << std::endl;
+	std::cout << proof2->getBrain() << std::endl;
+	delete wrongcat;
+
 	return 0;
 }

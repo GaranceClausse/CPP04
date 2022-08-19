@@ -33,3 +33,8 @@ void	WrongCat::makeSound()
 {
 	std::cout << "Mehoooooooow" << std::endl;
 }
+
+Brain* WrongCat::getBrain() const
+{
+	return this->_brain;
+}

@@ -23,6 +23,7 @@ class Dog : public Animal
 		~Dog();
 		virtual void makeSound() const;
 		Brain *getBrain() const;
+		Dog		&operator=( Dog const &copy );
 
 	private :
 		Brain*	_brain;

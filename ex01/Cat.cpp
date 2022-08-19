@@ -29,7 +29,7 @@ Cat		&Cat::operator=( Cat const &copy )
 {
 	std::cout << "Cat Assignement operator" << std::endl;
 	this->_type = copy.getType();
-	*(this->_brain) = *(copy._brain);
+	*(this->_brain) = *(copy.getBrain());
 	return *this;
 }
 
