@@ -32,6 +32,16 @@ Brain&	Brain::operator=(Brain const& copy)
 {
 	std::cout << "Brain Operator = " << std::endl;
 	for(int i = 0; i < 100; i++)
-		this->ideas[i] = copy.ideas[i];
+		this->_ideas[i] = copy._ideas[i];
 	return (*this);
+}
+
+void	Brain::setIdeas(std::string idea)
+{
+	*(this->_ideas) = idea;
+}
+
+std::string	Brain::getIdeas(void) const
+{
+	return *(this->_ideas);
 }

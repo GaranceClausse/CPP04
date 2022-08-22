@@ -37,65 +37,26 @@ int main()
 
 	}
 	std::cout << std::endl;
-/*
-	std::cout << "The Cat makes : ";
-	i->makeSound(); //will output the cat sound!
-	std::cout << "The Dog makes : ";
-	j->makeSound();
-	std::cout << "The Animal makes : ";
-	meta->makeSound();
-	std::cout << "" << std::endl;
-	delete j;
-	std::cout << "" << std::endl;
 
-	std::cout << "**************************************************************" << std::endl;
+	std::cout << "************************************" << std::endl;
+	std::cout << std::endl;
+	std::cout << "Show the brain" << std::endl;
 
-	
+	Cat *garfield = new Cat();
 
-	
-	std::cout << "Now, if I say that the Dog is a Cat..." << std::endl;
-	std::cout << "" << std::endl;
+	*(garfield->getBrain()).setIdeas("Foooood");
 
-	j = new Cat();
-	std::cout << "Type of Dog : " << j->getType() << " " << std::endl;
-	std::cout << "Type of Cat : " <<  i->getType() << " " << std::endl;
-	std::cout << "" << std::endl;
-
-	std::cout << "The Cat makes : ";
-	i->makeSound(); //will output the cat sound!
-	std::cout << "The Dog makes : ";
-	j->makeSound();
-	std::cout << "The Animal makes : ";
-	meta->makeSound();
-	std::cout << "" << std::endl;
-	
-	delete i;	
-	delete j;
-	delete meta;
-	std::cout << "" << std::endl;
-
-	std::cout << "**************************************************************" << std::endl;
-
-	std::cout << "Now let's check if the makenoise function isn't virtual" << std::endl;
-	std::cout << "" << std::endl;
-
-	WrongAnimal* wrongmeta = new WrongAnimal();
-	WrongAnimal* wrongi = new WrongCat();
-	std::cout << "" << std::endl;
-
-	std::cout << "Type of WrongCat : " <<  wrongi->getType() << " " << std::endl;
-	std::cout << "" << std::endl;
-
-	std::cout << "The WrongCat makes : ";
-	wrongi->makeSound();
-
-	std::cout << "The WrongAnimal makes : ";
-	wrongmeta->makeSound();
-	std::cout << "" << std::endl;
+	/*
+	std::cout << "************************************" << std::endl;
+	std::cout << std::endl;
+	std::cout << "Show the brain" << std::endl;
+	std::cout << std::endl;
 
 	
-	delete wrongi;
-	delete wrongmeta;*/
+	std::cout << proof->getBrain() << std::endl;
+	delete cat;
+
+	std::cout << std::endl;
 
 	for(int i = 0; i < nb_animals; i++)
 	{
@@ -104,16 +65,17 @@ int main()
 	}
 
 	std::cout << std::endl;
+
+
 	std::cout << "************************************" << std::endl;
 	std::cout << std::endl;
-	std::cout << "Show this is a deeep copy" << std::endl;
+	std::cout << "Show _ideas" << std::endl;
 	std::cout << std::endl;
-	Cat* cat = new Cat();
-	Cat* proof = cat;
+	Cat* garfield = new Cat();
 
-	std::cout << cat->getBrain() << std::endl;
-	std::cout << proof->getBrain() << std::endl;
-	delete cat;
+	garfield->getBrain()->set_ideas(_ideas[0]) = "I'm hungry";
+	//std::cout << proof->getBrain() << std::endl;
+	delete garfield;
 
 	std::cout << std::endl;
 	std::cout << "************************************" << std::endl;
@@ -125,7 +87,7 @@ int main()
 
 	std::cout << wrongcat->getBrain() << std::endl;
 	std::cout << proof2->getBrain() << std::endl;
-	delete wrongcat;
+	delete wrongcat;*/
 
 	return 0;
 }
