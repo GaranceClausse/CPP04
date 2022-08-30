@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 14:00:13 by gclausse          #+#    #+#             */
-/*   Updated: 2022/08/30 15:02:30 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/08/30 15:34:55 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,17 @@
 #include <string>
 #include "AMateria.hpp"
 
-class Cure
+class Cure : public AMateria
 {
-	private:
-		/* data */
 	public:
-		Cure(/* args */);
+		Cure(/* args */);		
+		Cure(const Cure& copy);
+		Cure &operator=(const Cure &copy);
 		virtual ~Cure();
+		
 		virtual AMateria* clone() const;
 		virtual void use(ICharacter& target);
 
 };
-
-Cure::Cure(/* args */)
-{
-}
-
-Cure::~Cure()
-{
-}
 
 std::ostream&	operator<<(std::ostream& stream, ICharacter const &copy);
