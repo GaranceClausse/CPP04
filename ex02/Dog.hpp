@@ -22,7 +22,7 @@ class Dog : public AAnimal
 		Dog(const Dog& copy);
 		~Dog();
 		virtual void makeSound() const;
-		Brain *getBrain() const;
+		virtual Brain *getBrain() const;
 		Dog		&operator=( Dog const &copy );
 
 	private :

@@ -16,62 +16,77 @@
 
 int main()
 {
-	const AAnimal* j = new Dog();
-	const AAnimal* i = new Cat();
-
-	std::cout << "" << std::endl;
-	std::cout << "Type of Dog : " << j->getType() << " " << std::endl;
-	std::cout << "Type of Cat : " <<  i->getType() << " " << std::endl;
-	std::cout << "" << std::endl;
-
-	std::cout << "The Cat makes : ";
-	i->makeSound(); //will output the cat sound!
-	std::cout << "The Dog makes : ";
-	j->makeSound();
-	std::cout << "" << std::endl;
-	delete j;
-	std::cout << "" << std::endl;
-
-	std::cout << "**************************************************************" << std::endl;
-
+	int	nb_AAnimals = 6;
+	const AAnimal* meta[nb_AAnimals];
 	
 
+	for(int i = 0; i < nb_AAnimals; i++)
+	{
+		if (i % 2)
+			meta[i] = new Dog();
+		else
+			meta[i] = new Cat();
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+	for(int i = 0; i < nb_AAnimals; i++)
+	{
+		std::cout << "Type of AAnimal : " << meta[i]->getType() << std::endl;
+		std::cout << "AAnimal makes : ";
+		meta[i]->makeSound();
+		std::cout << std::endl;
+
+	}
+	std::cout << std::endl;
+
+	std::cout << "************************************" << std::endl;
+	std::cout << std::endl;
+	std::cout << "Show the brain" << std::endl;
+	std::cout << std::endl;
+
+	(meta[4]->getBrain())->setIdeas("Fooood", 0);
+	std::cout << meta[4]->getType() << " first idea is " << (meta[4]->getBrain())->getIdeas(0) << std::endl;
+	(meta[4]->getBrain())->setIdeas("More fooood", 1);
+	std::cout << meta[4]->getType() << " second idea is " << (meta[4]->getBrain())->getIdeas(1) << std::endl;
+	(meta[4]->getBrain())->setIdeas("Cuddles?", 2);
+	std::cout << meta[4]->getType() << " third idea is " << (meta[4]->getBrain())->getIdeas(2) << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "************************************" << std::endl;
+	std::cout << std::endl;
+	std::cout << "Show this is a deep copy" << std::endl;
+	std::cout << std::endl;
+	AAnimal *firstCat = new Cat();
+	AAnimal *copy = new Cat();
+
+	(firstCat->getBrain())->setIdeas("Fooood", 0);
+	std::cout <<"FirstCat first idea is : " << (firstCat->getBrain())->getIdeas(0) << std::endl;
+
+	*copy = *firstCat;
+
+	(copy->getBrain())->setIdeas("I wish I would be a dog", 0);
+	std::cout << "Copy first idea is : " << (copy->getBrain())->getIdeas(0) << std::endl;
+	std::cout << "FirstCat first idea didn't change and still is : " << (firstCat->getBrain())->getIdeas(0) << std::endl;
 	
-	std::cout << "Now, if I say that the Dog is a Cat..." << std::endl;
-	std::cout << "" << std::endl;
+	delete firstCat;
+	delete copy;
+	std::cout << std::endl;
 
-	j = new Cat();
-	std::cout << "Type of Dog : " << j->getType() << " " << std::endl;
-	std::cout << "Type of Cat : " <<  i->getType() << " " << std::endl;
-	std::cout << "" << std::endl;
+	std::cout << "************************************" << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
 
-	std::cout << "The Cat makes : ";
-	i->makeSound(); //will output the cat sound!
-	std::cout << "The Dog makes : ";
-	j->makeSound();
-	std::cout << "" << std::endl;
+	for(int i = 0; i < nb_AAnimals; i++)
+		delete meta[i];
+
+	std::cout << std::endl;
+
+	std::cout << "************************************" << std::endl;
+	std::cout << std::endl;
+	std::cout << "Show AAnimal is an abstract class" << std::endl;
+	std::cout << std::endl;
 	
-	delete i;	
-	delete j;
-	std::cout << "" << std::endl;
-
-	std::cout << "**************************************************************" << std::endl;
-
-	std::cout << "Now let's check if the makenoise function isn't virtual" << std::endl;
-	std::cout << "" << std::endl;
-
-	WrongAAnimal* wrongi = new WrongCat();
-	std::cout << "" << std::endl;
-
-	std::cout << "Type of WrongCat : " <<  wrongi->getType() << " " << std::endl;
-	std::cout << "" << std::endl;
-
-	std::cout << "The WrongCat makes : ";
-	wrongi->makeSound();
-	std::cout << "" << std::endl;
-
+	//AAnimal *abstract = new AAnimal();
 	
-	delete wrongi;
-
 	return 0;
 }

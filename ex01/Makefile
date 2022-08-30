@@ -2,7 +2,7 @@ NAME = Animal
 OBJS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -fsanitize=leak
+CFLAGS = -Wall -Wextra -Werror
 DBFLAGS = -std=c++98
 
 OBJ=$(OBJS:.cpp=.o)

@@ -35,3 +35,14 @@ Brain&	Brain::operator=(Brain const& copy)
 		this->_ideas[i] = copy._ideas[i];
 	return (*this);
 }
+
+
+void	Brain::setIdeas(std::string idea, int index)
+{
+	this->_ideas[index] = idea;
+}
+
+std::string	Brain::getIdeas(int index) const
+{
+	return this->_ideas[index];
+}

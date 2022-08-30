@@ -14,7 +14,7 @@
 
 #include <iostream>
 #include <string>
-
+#include "Brain.hpp"
 
 #define COLOR "\033[;"
 #define RED "31m"
@@ -40,9 +40,10 @@ class AAnimal
 
 		AAnimal &operator=(const AAnimal &copy);
 		
-		virtual ~AAnimal();
+		virtual ~AAnimal();		
+		virtual Brain* getBrain() const = 0;
 		const std::string	&getType() const;
-		virtual void	makeSound() const = 0;
+		virtual void	makeSound() const;
 };
 
 std::ostream    &operator<<(std::ostream &output, AAnimal const &AAnimal);

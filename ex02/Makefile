@@ -1,4 +1,4 @@
-NAME = Animal
+NAME = AAnimal
 OBJS = main.cpp AAnimal.cpp Dog.cpp Cat.cpp WrongAAnimal.cpp WrongCat.cpp Brain.cpp
 
 CC = c++

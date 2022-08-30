@@ -51,3 +51,4 @@ std::ostream&	operator<<(std::ostream& stream, AAnimal const &copy)
 	stream << copy.getType();
 	return (stream);
 }
+
