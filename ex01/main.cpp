@@ -16,8 +16,9 @@
 
 int main()
 {
-	int	nb_animals = 20;
+	int	nb_animals = 6;
 	const Animal* meta[nb_animals];
+	
 
 	for(int i = 0; i < nb_animals; i++)
 	{
@@ -41,53 +42,42 @@ int main()
 	std::cout << "************************************" << std::endl;
 	std::cout << std::endl;
 	std::cout << "Show the brain" << std::endl;
+	std::cout << std::endl;
 
-	Cat *garfield = new Cat();
+	(meta[4]->getBrain())->setIdeas("Fooood", 0);
+	std::cout << meta[4]->getType() << " first idea is " << (meta[4]->getBrain())->getIdeas(0) << std::endl;
+	(meta[4]->getBrain())->setIdeas("More fooood", 1);
+	std::cout << meta[4]->getType() << " second idea is " << (meta[4]->getBrain())->getIdeas(1) << std::endl;
+	(meta[4]->getBrain())->setIdeas("Cuddles?", 2);
+	std::cout << meta[4]->getType() << " third idea is " << (meta[4]->getBrain())->getIdeas(2) << std::endl;
+	std::cout << std::endl;
 
-	*(garfield->getBrain()).setIdeas("Foooood");
-
-	/*
 	std::cout << "************************************" << std::endl;
 	std::cout << std::endl;
-	std::cout << "Show the brain" << std::endl;
+	std::cout << "Show this is a deep copy" << std::endl;
+	std::cout << std::endl;
+	Animal *firstCat = new Cat();
+	Animal *copy = new Cat();
+
+	(firstCat->getBrain())->setIdeas("Fooood", 0);
+	std::cout <<"FirstCat first idea is : " << (firstCat->getBrain())->getIdeas(0) << std::endl;
+
+	*copy = *firstCat;
+
+	(copy->getBrain())->setIdeas("I wish I would be a dog", 0);
+	std::cout << "Copy first idea is : " << (copy->getBrain())->getIdeas(0) << std::endl;
+	std::cout << "FirstCat first idea didn't change and still is : " << (firstCat->getBrain())->getIdeas(0) << std::endl;
+	
+	delete firstCat;
+	delete copy;
 	std::cout << std::endl;
 
-	
-	std::cout << proof->getBrain() << std::endl;
-	delete cat;
-
+	std::cout << "************************************" << std::endl;
+	std::cout << std::endl;
 	std::cout << std::endl;
 
 	for(int i = 0; i < nb_animals; i++)
-	{
 		delete meta[i];
-		std::cout << std::endl;
-	}
-
-	std::cout << std::endl;
-
-
-	std::cout << "************************************" << std::endl;
-	std::cout << std::endl;
-	std::cout << "Show _ideas" << std::endl;
-	std::cout << std::endl;
-	Cat* garfield = new Cat();
-
-	garfield->getBrain()->set_ideas(_ideas[0]) = "I'm hungry";
-	//std::cout << proof->getBrain() << std::endl;
-	delete garfield;
-
-	std::cout << std::endl;
-	std::cout << "************************************" << std::endl;
-	std::cout << std::endl;
-	std::cout << "Show a shallow copy" << std::endl;
-	std::cout << std::endl;
-	WrongCat* wrongcat = new WrongCat();
-	WrongCat* proof2 = wrongcat;
-
-	std::cout << wrongcat->getBrain() << std::endl;
-	std::cout << proof2->getBrain() << std::endl;
-	delete wrongcat;*/
-
+	
 	return 0;
 }

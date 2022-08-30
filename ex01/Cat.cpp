@@ -19,7 +19,7 @@ Cat::Cat()
 	this->_brain = new Brain();
 }
 
-Cat::Cat(Cat const& copy) : Animal(), _brain(NULL)
+Cat::Cat(Cat const& copy) : Animal()
 {
 	std::cout << COLOR B_RED "Cat Copy constructor" COLOR RESET << std::endl;
 	operator=(copy);
@@ -49,3 +49,4 @@ Brain* Cat::getBrain() const
 {
 	return this->_brain;
 }
+

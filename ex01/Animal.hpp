@@ -14,7 +14,7 @@
 
 #include <iostream>
 #include <string>
-
+#include "Brain.hpp"
 
 #define COLOR "\033[;"
 #define RED "31m"
@@ -40,7 +40,8 @@ class Animal
 
 		Animal &operator=(const Animal &copy);
 		
-		virtual ~Animal();
+		virtual ~Animal();		
+		virtual Brain* getBrain() const = 0;
 		const std::string	&getType() const;
 		virtual void	makeSound() const;
 };
