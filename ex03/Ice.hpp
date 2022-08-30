@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 14:00:52 by gclausse          #+#    #+#             */
-/*   Updated: 2022/08/30 14:10:38 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/08/30 15:02:21 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 
 #include <iostream>
 #include <string>
+#include "AMateria.hpp"
 
 class Ice
 {
-private:
-	/* data */
-public:
-	Ice(/* args */);
-	~Ice();
+	private:
+		/* data */
+	public:
+		Ice(/* args */);
+		virtual ~Ice();
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
 };
 
 Ice::Ice(/* args */)
@@ -32,3 +35,5 @@ Ice::Ice(/* args */)
 Ice::~Ice()
 {
 }
+
+std::ostream&	operator<<(std::ostream& stream, ICharacter const &copy);
