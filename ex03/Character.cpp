@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 14:20:26 by gclausse          #+#    #+#             */
-/*   Updated: 2022/08/30 16:00:03 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/01 15:01:09 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,54 @@ Character::~Character()
 Character &Character::operator=(const Character &copy)
 {
 	this->_name = copy._name;
+	for (int i = 0; i < _inventory_size; i++)
+		delete _inventory[i];
+	this->_inventory_size = copy._inventory_size;
+	for (int i = 0; i < _inventory_size; i++)
+		this->equip(copy._inventory[i]->clone());	
 	std::cout << "Character operator = called" << std::endl;
 	return *this;
 	
 }
 
-std::string const & getName() const
+void Character::equip(AMateria* m)
+{
+	if (_inventory_size < 4 && m)
+		_inventory[_inventory_size++] = m;
+	else
+	{
+		std::cout << "Problem, you can't equip" << std::endl;
+		return ;
+	}
+}
+
+
+void Character::unequip(int idx)
+{
+	if (idx < 0 || idx > _inventory_size || _inventory[idx] == nullptr)
+	{
+		std::cout << "Problem, you can't unequip" << std::endl;
+		return ;
+	}
+	while (idx < _inventory_size)
+	{
+		_inventory[idx] = _inventory[idx + 1];
+		_inventory[idx + 1] = nullptr;
+		idx++;
+	}
+}
+
+void Character::use(int idx, ICharacter& target)
+{
+	if (idx < 0 || idx > _inventory_size || _inventory[idx] == nullptr)
+	{
+		std::cout << "Problem, you can't use your Materia" << std::endl;
+		return ;
+	}
+	_inventory[idx]->use(target);
+}
+
+std::string const &Character::getName() const
 {
 	return this->_name;
 }

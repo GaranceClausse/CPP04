@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 14:17:50 by gclausse          #+#    #+#             */
-/*   Updated: 2022/08/30 14:21:06 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/01 15:01:50 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "Character.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {

@@ -1,29 +1,33 @@
 NAME = Animal
-OBJS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
-CC = c++
-CFLAGS = -Wall -Wextra -Werror
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror
 DBFLAGS = -std=c++98
 
-OBJ=$(OBJS:.cpp=.o)
+OBJ_PATH = ./objs/
+OBJ=$(addprefix $(OBJ_PATH), $(SRCS:.cpp=.o))
+DEPS=$(OBJ:.o=.d)
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) $(DBFLAGS) -o $@ -c $<
+$(OBJ_PATH)%.o: %.cpp
+	@mkdir -p $(OBJ_PATH)
+	$(CXX) $(CXXFLAGS) $(DBFLAGS) -o $@ -c $<
 
 all: $(NAME)
 
-debug: CFLAGS+=$(DBFLAGS)
+debug: CXXFLAGS+=$(DBFLAGS)
 debug:	$(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(DBFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $(DBFLAGS) $^ -o $@
 
 clean: 
-	$(RM) $(OBJ)
+	@rm -rf $(OBJ_PATH) 	
 	
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all
+re: fclean
+	make all
 
 .PHONY: all clean fclean re debug
